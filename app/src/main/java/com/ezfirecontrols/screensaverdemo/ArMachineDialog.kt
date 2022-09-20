@@ -23,6 +23,9 @@ class ArMachineDialog(
     val item1: Uri,
     val item2: Uri,
     val item3: Uri,
+    val item4: Uri,
+    val item5: Uri,
+    val item6: Uri,
     val spanNumber: Int,
     val totalCount: Int,
     val banner: String,
@@ -35,7 +38,9 @@ class ArMachineDialog(
     val topMargin: Int,
     val interval: Long,
     val adScale: Int,
-    val glass: Uri? = null
+    val glass: Uri? = null,
+    val holder: Uri? = null
+
 ) :
     DialogFragment(),
     ArAdapter.ArInterface, ItemDialog.ItemDetailsInterface, CartAdapter.CartInterface,
@@ -52,7 +57,7 @@ class ArMachineDialog(
 
     companion object {
         fun getInstance(
-            item1: Uri, item2: Uri, item3: Uri, spanNumber: Int, totalCount: Int, banner: String,
+            item1: Uri, item2: Uri, item3: Uri, item4: Uri, item5: Uri, item6: Uri, spanNumber: Int, totalCount: Int, banner: String,
             imageUri: Uri?,
             fontSize: Float,
             speed: Long,
@@ -62,10 +67,11 @@ class ArMachineDialog(
             topMargin: Int,
             interval: Long,
             adScale: Int,
-            glass: Uri?
+            glass: Uri?,
+            holder: Uri?
         ) =
             ArMachineDialog(
-                item1, item2, item3, spanNumber, totalCount, banner,
+                item1, item2, item3,item4, item5, item6, spanNumber, totalCount, banner,
                 imageUri,
                 fontSize,
                 speed,
@@ -75,7 +81,8 @@ class ArMachineDialog(
                 topMargin,
                 interval,
                 adScale,
-                glass
+                glass,
+                holder
             )
     }
 
@@ -152,14 +159,23 @@ class ArMachineDialog(
     }
 
     private fun setupItemsRv() {
-        val loopNum = (totalCount / 3).toInt()
+        val loopNum = (totalCount / 6).toInt()
         for (i in 1..loopNum) {
-            adsList.add(ArItem(item1, true, "Chips", 5))
-            adsList.add(ArItem(item2, true, "Pepsi", 8))
-            adsList.add(ArItem(item3, true, "Cola", 6))
+            adsList.add(ArItem(item4, true, "Chocolate Cake", 6))
+            adsList.add(ArItem(item1, true, "Brown Cake", 5))
+            adsList.add(ArItem(item2, true, "Vanilla Cake", 8))
+            adsList.add(ArItem(item5, true, "Special Cake", 6))
+            adsList.add(ArItem(item6, true, "Super Cake", 6))
+            adsList.add(ArItem(item3, true, "Special Cake", 6))
+            adsList.add(ArItem(item4, true, "Chocolate Cake", 6))
+            adsList.add(ArItem(item5, true, "Special Cake", 6))
+            adsList.add(ArItem(item6, true, "Super Cake", 6))
+            adsList.add(ArItem(item3, true, "Special Cake", 6))
+
+
         }
         binding?.adsRv?.apply {
-            arAdapter = ArAdapter(adsList, this@ArMachineDialog)
+            arAdapter = ArAdapter(adsList, this@ArMachineDialog, holder)
             adapter = arAdapter
             layoutManager = GridLayoutManager(requireContext(), spanNumber)
             setHasFixedSize(true)

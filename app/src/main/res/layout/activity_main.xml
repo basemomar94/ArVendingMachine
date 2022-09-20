@@ -131,7 +131,7 @@
             android:text="Start Screen Saver"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_glass" />
+            app:layout_constraintTop_toBottomOf="@+id/add_holder" />
 
         <TextView
             android:id="@+id/textView"
@@ -361,6 +361,63 @@
             app:layout_constraintTop_toTopOf="@+id/add_ad_3"
              />
         <Button
+            android:id="@+id/add_ad_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ad 4"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_ad_3" />
+
+        <ImageView
+            android:id="@+id/add4_small"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_ad_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/add_ad_4"
+            />
+        <Button
+            android:id="@+id/add_ad_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ad 5"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_ad_4" />
+
+        <ImageView
+            android:id="@+id/add5_small"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_ad_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/add_ad_5"
+            />
+        <Button
+            android:id="@+id/add_ad_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ad 6"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_ad_5" />
+
+        <ImageView
+            android:id="@+id/add6_small"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_ad_6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/add_ad_6"
+            />
+        <Button
             android:id="@+id/add_glass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -368,7 +425,7 @@
             android:text="Glass"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_ad_3" />
+            app:layout_constraintTop_toBottomOf="@+id/add_ad_6" />
 
         <ImageView
             android:id="@+id/glass_photo"
@@ -379,6 +436,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/add_glass"
             />
+        <Button
+            android:id="@+id/add_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Holder"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_glass" />
+
+        <ImageView
+            android:id="@+id/holder_photo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/add_holder"
+            />
+
 
         <Button
             app:layout_constraintTop_toBottomOf="@id/total_items"
@@ -405,7 +482,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="6"
+            android:text="4"
             app:layout_constraintBottom_toTopOf="@+id/ar_vending"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView8"

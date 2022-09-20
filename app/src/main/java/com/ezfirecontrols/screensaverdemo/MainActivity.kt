@@ -29,14 +29,24 @@ class MainActivity : AppCompatActivity() {
     private var adUri1uploaded: Uri? = null
     private var adUri2uploaded: Uri? = null
     private var adUri3uploaded: Uri? = null
+    private var adUri4uploaded: Uri? = null
+    private var adUri5uploaded: Uri? = null
+    private var adUri6uploaded: Uri? = null
+
     private var glass: Uri? = null
+    private var holder: Uri? = null
 
 
     private val WALL_PAPER_IMAGE_CODE = 100
     private val ADD_ONE_CODE = 1
     private val ADD_TWO_CODE = 2
     private val ADD_THREE_CODE = 3
-    private val ADD_GLASS = 4
+    private val ADD_Four_CODE = 4
+    private val ADD_Five_CODE = 5
+    private val ADD_Six_CODE = 6
+
+    private val ADD_GLASS = 14
+    private val ADD_HOLDER = 15
 
     val mDefaultFontColor = R.color.black
     var bannerColor: Int? = null
@@ -81,11 +91,26 @@ class MainActivity : AppCompatActivity() {
         addImage1()
         addImage2()
         addImage3()
+        addImage4()
+        addImage5()
+        addImage6()
+
         //show ar
         showArVending()
         uploadGlassPhoto()
+        uploadHolder()
 
     }
+
+    private fun uploadHolder() {
+        binding?.addHolder?.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(intent, ADD_HOLDER)
+        }
+    }
+
 
     private fun uploadGlassPhoto() {
         binding?.addGlass?.setOnClickListener {
@@ -168,7 +193,30 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, ADD_THREE_CODE)
         }
     }
-
+    private fun addImage4() {
+        binding?.addAd4?.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(intent, ADD_Four_CODE)
+        }
+    }
+    private fun addImage5() {
+        binding?.addAd5?.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(intent, ADD_Five_CODE)
+        }
+    }
+    private fun addImage6() {
+        binding?.addAd6?.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(intent, ADD_Six_CODE)
+        }
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
@@ -194,13 +242,30 @@ class MainActivity : AppCompatActivity() {
 
                 ADD_THREE_CODE -> {
                     adUri3uploaded = data?.data
-                    binding?.adPreview3?.setImageURI(adUri3uploaded)
                     binding?.add3Small?.setImageURI(adUri3uploaded)
+                }
+
+                ADD_Four_CODE -> {
+                    adUri4uploaded = data?.data
+                    binding?.add4Small?.setImageURI(adUri4uploaded)
+                }
+                ADD_Five_CODE -> {
+                    adUri5uploaded = data?.data
+                    binding?.add5Small?.setImageURI(adUri5uploaded)
+                }
+                ADD_Six_CODE -> {
+                    adUri6uploaded = data?.data
+                    binding?.add6Small?.setImageURI(adUri6uploaded)
                 }
 
                 ADD_GLASS -> {
                     glass = data?.data
                     binding?.glassPhoto?.setImageURI(glass)
+                }
+
+                ADD_HOLDER -> {
+                    holder = data?.data
+                    binding?.holderPhoto?.setImageURI(holder)
                 }
 
             }
@@ -466,6 +531,9 @@ class MainActivity : AppCompatActivity() {
                     adUri1uploaded!!,
                     adUri2uploaded!!,
                     adUri3uploaded!!,
+                    adUri4uploaded!!,
+                    adUri5uploaded!!,
+                    adUri6uploaded!!,
                     binding?.editTextNumber?.text.toString().toInt(),
                     binding?.totalItems?.text?.toString()!!.toInt(),
                     banner = binding?.bannerTextEdit?.text.toString(),
@@ -478,7 +546,8 @@ class MainActivity : AppCompatActivity() {
                     topMargin = binding?.banner!!.marginTop,
                     intervals,
                     adScale = imageScale,
-                    glass = glass
+                    glass = glass,
+                    holder = holder
                 )
                     .show(this.supportFragmentManager, ArMachineDialog::class.java.simpleName)
             } else {

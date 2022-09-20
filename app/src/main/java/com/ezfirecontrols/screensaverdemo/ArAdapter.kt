@@ -1,12 +1,17 @@
 package com.ezfirecontrols.screensaverdemo
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ezfirecontrols.screensaverdemo.databinding.ArItemBinding
 
-class ArAdapter(val adsList: MutableList<ArItem>, val arInterface: ArInterface) :
+class ArAdapter(
+    val adsList: MutableList<ArItem>,
+    val arInterface: ArInterface,
+    val holderImage: Uri?
+) :
     RecyclerView.Adapter<ArAdapter.ViewHolder>() {
 
 
@@ -34,6 +39,9 @@ class ArAdapter(val adsList: MutableList<ArItem>, val arInterface: ArInterface) 
         } else {
             holder.binding.itemPhoto.visibility = View.VISIBLE
 
+        }
+        if (holderImage != null) {
+            holder.binding.itemHolder.setImageURI(holderImage)
         }
     }
 

@@ -7,11 +7,12 @@
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/drawable/ic_glass.xml" value="0.13" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/drawable/ic_item_3.xml" value="0.199" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/drawable/ic_item_goeo.xml" value="0.199" />
-        <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/activity_vr_machine.xml" value="0.1" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/ad_item.xml" value="0.12" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/ar_item.xml" value="0.33" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/cart_item.xml" value="0.33" />
-        <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/dialog_ar_machine.xml" value="0.25" />
+        <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/dialog_ar_machine.xml" value="0.33" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/dialog_check_out.xml" value="0.25" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/dialog_item.xml" value="0.33" />
         <entry key="..\:/ScreenSaverDemo/app/src/main/res/layout/dialog_screen_saver.xml" value="0.22" />
