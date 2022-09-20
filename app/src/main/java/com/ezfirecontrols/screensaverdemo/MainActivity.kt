@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.marginTop
 import androidx.core.widget.doAfterTextChanged
@@ -28,11 +29,15 @@ class MainActivity : AppCompatActivity() {
     private var adUri1uploaded: Uri? = null
     private var adUri2uploaded: Uri? = null
     private var adUri3uploaded: Uri? = null
+    private var glass: Uri? = null
+
 
     private val WALL_PAPER_IMAGE_CODE = 100
     private val ADD_ONE_CODE = 1
     private val ADD_TWO_CODE = 2
     private val ADD_THREE_CODE = 3
+    private val ADD_GLASS = 4
+
     val mDefaultFontColor = R.color.black
     var bannerColor: Int? = null
     private var movingTextAnimation: Animation? = null
@@ -78,6 +83,17 @@ class MainActivity : AppCompatActivity() {
         addImage3()
         //show ar
         showArVending()
+        uploadGlassPhoto()
+
+    }
+
+    private fun uploadGlassPhoto() {
+        binding?.addGlass?.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(intent, ADD_GLASS)
+        }
     }
 
     private fun screenSaveSettings() {
@@ -180,6 +196,11 @@ class MainActivity : AppCompatActivity() {
                     adUri3uploaded = data?.data
                     binding?.adPreview3?.setImageURI(adUri3uploaded)
                     binding?.add3Small?.setImageURI(adUri3uploaded)
+                }
+
+                ADD_GLASS -> {
+                    glass = data?.data
+                    binding?.glassPhoto?.setImageURI(glass)
                 }
 
             }
@@ -440,24 +461,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun showArVending() {
         binding?.arVending?.setOnClickListener {
-            ArMachineDialog.getInstance(
-                adUri1uploaded!!,
-                adUri2uploaded!!,
-                adUri3uploaded!!,
-                binding?.editTextNumber?.text.toString().toInt(),
-                binding?.totalItems?.text?.toString()!!.toInt(),
-                banner = binding?.bannerTextEdit?.text.toString(),
-                imageUri = wallpaperImage,
-                fontSize = binding?.typeAnimation!!.textSize,
-                speed = movingTextAnimation!!.duration,
-                fontColor = binding?.typeAnimation?.currentTextColor!!,
-                bannerColor = bannerColor ?: resources.getColor(R.color.red),
-                light = binding?.overlayCover?.alpha!!,
-                topMargin = binding?.banner!!.marginTop,
-                intervals,
-                adScale = imageScale
-            )
-                .show(this.supportFragmentManager, ArMachineDialog::class.java.simpleName)
+            if (adUri3uploaded != null && adUri2uploaded != null && adUri3uploaded != null) {
+                ArMachineDialog.getInstance(
+                    adUri1uploaded!!,
+                    adUri2uploaded!!,
+                    adUri3uploaded!!,
+                    binding?.editTextNumber?.text.toString().toInt(),
+                    binding?.totalItems?.text?.toString()!!.toInt(),
+                    banner = binding?.bannerTextEdit?.text.toString(),
+                    imageUri = wallpaperImage,
+                    fontSize = binding?.typeAnimation!!.textSize,
+                    speed = movingTextAnimation!!.duration,
+                    fontColor = binding?.typeAnimation?.currentTextColor!!,
+                    bannerColor = bannerColor ?: resources.getColor(R.color.red),
+                    light = binding?.overlayCover?.alpha!!,
+                    topMargin = binding?.banner!!.marginTop,
+                    intervals,
+                    adScale = imageScale,
+                    glass = glass
+                )
+                    .show(this.supportFragmentManager, ArMachineDialog::class.java.simpleName)
+            } else {
+                Toast.makeText(this, "Please Upload Ads", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 

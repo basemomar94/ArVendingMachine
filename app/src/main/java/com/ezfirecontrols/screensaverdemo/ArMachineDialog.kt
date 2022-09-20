@@ -34,7 +34,8 @@ class ArMachineDialog(
     val light: Float,
     val topMargin: Int,
     val interval: Long,
-    val adScale: Int
+    val adScale: Int,
+    val glass: Uri? = null
 ) :
     DialogFragment(),
     ArAdapter.ArInterface, ItemDialog.ItemDetailsInterface, CartAdapter.CartInterface,
@@ -60,7 +61,8 @@ class ArMachineDialog(
             light: Float,
             topMargin: Int,
             interval: Long,
-            adScale: Int
+            adScale: Int,
+            glass: Uri?
         ) =
             ArMachineDialog(
                 item1, item2, item3, spanNumber, totalCount, banner,
@@ -72,7 +74,8 @@ class ArMachineDialog(
                 light,
                 topMargin,
                 interval,
-                adScale
+                adScale,
+                glass
             )
     }
 
@@ -117,6 +120,7 @@ class ArMachineDialog(
         updateScreenSaver()
         setupAd()
         updateBackGround()
+        setupGlass()
 
 
 
@@ -126,6 +130,12 @@ class ArMachineDialog(
             setupCartRv()
         }
 
+    }
+
+    private fun setupGlass() {
+        if (glass != null) {
+            binding?.glass?.setImageURI(glass)
+        }
     }
 
     private fun setupCartRv() {
