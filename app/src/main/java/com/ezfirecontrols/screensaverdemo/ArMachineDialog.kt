@@ -57,7 +57,15 @@ class ArMachineDialog(
 
     companion object {
         fun getInstance(
-            item1: Uri, item2: Uri, item3: Uri, item4: Uri, item5: Uri, item6: Uri, spanNumber: Int, totalCount: Int, banner: String,
+            item1: Uri,
+            item2: Uri,
+            item3: Uri,
+            item4: Uri,
+            item5: Uri,
+            item6: Uri,
+            spanNumber: Int,
+            totalCount: Int,
+            banner: String,
             imageUri: Uri?,
             fontSize: Float,
             speed: Long,
@@ -71,7 +79,7 @@ class ArMachineDialog(
             holder: Uri?
         ) =
             ArMachineDialog(
-                item1, item2, item3,item4, item5, item6, spanNumber, totalCount, banner,
+                item1, item2, item3, item4, item5, item6, spanNumber, totalCount, banner,
                 imageUri,
                 fontSize,
                 speed,
@@ -202,7 +210,7 @@ class ArMachineDialog(
         arAdapter?.notifyItemChanged(position)
         cartList.add(0, arItem)
         cartAdapter?.notifyItemInserted(0)
-        binding?.total?.text = cartList.sumOf { it.itemPrice }.toString() + " $"
+        binding?.total?.text = " $" + cartList.sumOf { it.itemPrice }.toString()
 
     }
 
@@ -348,11 +356,11 @@ class ArMachineDialog(
     }
 
     private fun setupAd() {
-        item1.apply {
-            if (this != null) {
-                binding?.imageAd1?.setImageURI(this)
-            }
-        }
+//        item1.apply {
+//            if (this != null) {
+//                binding?.imageAd1?.setImageURI(this)
+//            }
+//        }
 
         item2.apply {
             if (this != null) {
@@ -370,7 +378,7 @@ class ArMachineDialog(
     private fun hideTicker() {
 
         val param = binding?.banner?.layoutParams as ViewGroup.MarginLayoutParams
-        param.setMargins(0, 4 * topMargin * 3, 0, 0)
+        param.setMargins(0, 32, 0, 0)
         binding?.banner?.post {
             binding?.banner?.layoutParams = param
 

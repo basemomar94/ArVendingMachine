@@ -61,7 +61,7 @@ class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: C
             setHasFixedSize(true)
 
         }
-        binding?.total2?.text = cartList.sumOf { it.itemPrice }.toString() + " $"
+        binding?.total2?.text = " $" + cartList.sumOf { it.itemPrice }.toString()
 
 
     }
@@ -69,7 +69,7 @@ class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: C
     override fun removeItem(cartItem: ArItem, position: Int) {
         cartAdapter?.notifyItemRemoved(position)
         cartList.removeAt(position)
-        binding?.total2?.text = " $" + cartList.sumOf { it.itemPrice }.toString()
+        binding?.total2?.text = "$" + cartList.sumOf { it.itemPrice }.toString()
         checkOutInterface.updateRemovedItem(cartItem)
         if (cartList.size == 0) {
             dismiss()

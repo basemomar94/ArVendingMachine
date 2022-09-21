@@ -3,22 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/back_ground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/ix6ua"
+        android:src="@drawable/gradient_shelves"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ads_rv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="72dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,10 +55,10 @@
         android:scaleType="fitCenter"
         android:src="@drawable/person"
         android:visibility="visible"
-        app:layout_constraintTop_toTopOf="@id/banner"
         app:layout_constraintBottom_toBottomOf="@+id/banner"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/banner" />
 
     <ImageView
         android:id="@+id/image_ad_2"
@@ -65,13 +67,12 @@
         android:scaleType="fitCenter"
         android:src="@drawable/pepsi"
         android:visibility="visible"
-        app:layout_constraintTop_toTopOf="@id/banner"
         app:layout_constraintBottom_toBottomOf="@+id/banner"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/image_ad_1" />
+        app:layout_constraintEnd_toStartOf="@id/image_ad_1"
+        app:layout_constraintTop_toTopOf="@id/banner" />
 
     <ImageView
-        app:layout_constraintTop_toTopOf="@id/banner"
         android:id="@+id/image_ad_3"
         android:layout_width="0dp"
         android:layout_height="100dp"
@@ -80,23 +81,26 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/banner"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/image_ad_2" />
+        app:layout_constraintEnd_toStartOf="@id/image_ad_2"
+        app:layout_constraintTop_toTopOf="@id/banner" />
 
     <ImageView
         android:id="@+id/glass"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
+        android:src="@drawable/glassr"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/cardbackground"
         android:visibility="visible"
@@ -159,5 +163,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

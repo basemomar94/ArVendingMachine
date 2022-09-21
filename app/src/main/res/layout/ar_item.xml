@@ -7,13 +7,13 @@
     android:layout_marginTop="32dp">
 
     <ImageView
-        android:paddingTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:src="@drawable/chips"
+        android:paddingTop="24dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:src="@drawable/vanilla2"
         android:id="@+id/item_photo"
         android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:scaleType="fitEnd"
         android:visibility="visible"
         tools:ignore="RtlSymmetry" />
@@ -21,10 +21,10 @@
     <ImageView
         android:id="@+id/item_holder"
         android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_item_goeo"
+        android:src="@drawable/glassholder"
         android:visibility="visible" />
 
 </FrameLayout>
