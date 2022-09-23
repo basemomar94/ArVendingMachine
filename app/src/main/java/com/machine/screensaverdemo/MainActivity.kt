@@ -1,4 +1,4 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
 import android.content.Intent
 import android.net.Uri
@@ -8,15 +8,13 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.marginTop
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
-import com.ezfirecontrols.screensaverdemo.databinding.ActivityMainBinding
-import com.ezfirecontrols.screensaverdemo.databinding.DialogArMachineBinding
 import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
+import com.machine.screensaverdemo.databinding.ActivityMainBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import pub.devrel.easypermissions.EasyPermissions
@@ -131,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         binding?.typeAnimation?.textSize = binding?.fontSeekBar?.progress!!.toFloat() * 5
         binding?.overlayCover?.alpha = 1 - (binding?.lightSeekBar?.progress!!.toFloat() / 10)
         val param = binding?.banner?.layoutParams as ViewGroup.MarginLayoutParams
-        param.setMargins(0, (10 * binding?.marginSeekBar!!.progress), 0, 0)
+        param.setMargins(0, (10 * binding?.editTextMargin?.text.toString()!!.toInt()), 0, 0)
         imageScale = binding?.scaleSeekBar!!.progress
         binding?.banner?.layoutParams = param
         binding?.banner?.post {
@@ -398,7 +396,7 @@ class MainActivity : AppCompatActivity() {
         binding?.marginSeekBar?.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                screenSaveSettings()
+               binding?.editTextMargin?.setText(p1.toString())
 
             }
 
@@ -526,33 +524,34 @@ class MainActivity : AppCompatActivity() {
 
     private fun showArVending() {
         binding?.arVending?.setOnClickListener {
-            if (adUri3uploaded != null && adUri2uploaded != null && adUri3uploaded != null) {
-                ArMachineDialog.getInstance(
-                    adUri1uploaded!!,
-                    adUri2uploaded!!,
-                    adUri3uploaded!!,
-                    adUri4uploaded!!,
-                    adUri5uploaded!!,
-                    adUri6uploaded!!,
-                    binding?.editTextNumber?.text.toString().toInt(),
-                    binding?.totalItems?.text?.toString()!!.toInt(),
-                    banner = binding?.bannerTextEdit?.text.toString(),
-                    imageUri = wallpaperImage,
-                    fontSize = binding?.typeAnimation!!.textSize,
-                    speed = movingTextAnimation!!.duration,
-                    fontColor = binding?.typeAnimation?.currentTextColor!!,
-                    bannerColor = bannerColor ?: resources.getColor(R.color.red),
-                    light = binding?.overlayCover?.alpha!!,
-                    topMargin = binding?.banner!!.marginTop,
-                    intervals,
-                    adScale = imageScale,
-                    glass = glass,
-                    holder = holder
-                )
-                    .show(this.supportFragmentManager, ArMachineDialog::class.java.simpleName)
-            } else {
-                Toast.makeText(this, "Please Upload Ads", Toast.LENGTH_SHORT).show()
-            }
+            ArMachineDialog.getInstance(
+//                adUri1uploaded!!,
+//                adUri2uploaded!!,
+//                adUri3uploaded!!,
+//                adUri4uploaded!!,
+//                adUri5uploaded!!,
+//                adUri6uploaded!!,
+                binding?.editTextNumber?.text.toString().toInt(),
+                binding?.totalItems?.text?.toString()!!.toInt(),
+                banner = binding?.bannerTextEdit?.text.toString(),
+                imageUri = wallpaperImage,
+                fontSize = binding?.typeAnimation!!.textSize,
+                speed = movingTextAnimation!!.duration,
+                fontColor = binding?.typeAnimation?.currentTextColor!!,
+                bannerColor = bannerColor ?: resources.getColor(R.color.red),
+                light = binding?.overlayCover?.alpha!!,
+                topMargin = binding?.editTextMargin?.text.toString().toInt(),
+                intervals,
+                adScale = imageScale,
+                glass = glass,
+                holder = holder
+            )
+                .show(this.supportFragmentManager, ArMachineDialog::class.java.simpleName)
+//            if (adUri3uploaded != null && adUri2uploaded != null && adUri3uploaded != null) {
+//
+//            } else {
+//                Toast.makeText(this, "Please Upload Ads", Toast.LENGTH_SHORT).show()
+//            }
 
         }
     }

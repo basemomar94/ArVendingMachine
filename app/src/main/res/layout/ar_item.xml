@@ -3,28 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="32dp">
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:paddingTop="24dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:src="@drawable/vanilla2"
         android:id="@+id/item_photo"
-        android:layout_width="150dp"
+        android:layout_width="155dp"
+
         android:layout_height="150dp"
+        android:paddingStart="32dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="32dp"
         android:scaleType="fitEnd"
+        android:src="@drawable/vanilla2"
         android:visibility="visible"
         tools:ignore="RtlSymmetry" />
 
     <ImageView
+        android:alpha=".5"
         android:id="@+id/item_holder"
-        android:layout_width="150dp"
+        android:layout_width="155dp"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:scaleType="fitXY"
-        android:src="@drawable/glassholder"
+        android:src="@drawable/glassholder2"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/cake_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/item_holder2"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:scaleType="fitXY"
+        android:src="@drawable/glassoverr"
         android:visibility="visible" />
 
 </FrameLayout>

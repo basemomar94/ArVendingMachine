@@ -1,4 +1,4 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

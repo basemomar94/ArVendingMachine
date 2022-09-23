@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_4sdp">
+    >
 
     <ImageView
         android:id="@+id/cart_cancel"
@@ -40,15 +40,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="5.0$"
-            android:textSize="16sp" />
+            android:textColor="@color/red_A700"
+            android:textStyle="bold"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/cart_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:layout_marginTop="8dp"
             android:text="Chips"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

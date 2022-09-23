@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/dialog_border"
     android:layout_height="wrap_content"
     android:padding="32dp">
 
@@ -10,7 +11,9 @@
         android:id="@+id/details_image"
         android:layout_width="100dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/chips" />
@@ -19,9 +22,11 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/details_image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/details_image">
 
         <TextView
@@ -41,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:text="50 $"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/red_A700"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -61,9 +66,9 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Happy Belly Classic Salted Potato Chips are a tasty snack for the whole family. Made with potatoes, oil and salt.
 

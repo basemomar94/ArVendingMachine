@@ -1,17 +1,12 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ezfirecontrols.screensaverdemo.databinding.DialogCheckOutBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.machine.screensaverdemo.databinding.DialogCheckOutBinding
 
 class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: CheckOutInterface) :
     DialogFragment(),
@@ -24,17 +19,17 @@ class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: C
             CheckOutDialog(cartList, checkOutInterface)
     }
 
-    override fun onStart() {
-        super.onStart()
-        val dialog: BottomSheetDialog? = BottomSheetDialog(requireContext())
-        if (dialog != null) {
-            dialog.window?.setLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        val dialog: BottomSheetDialog? = BottomSheetDialog(requireContext())
+//        if (dialog != null) {
+//            dialog.window?.setLayout(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT
+//            )
+//            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+//        }
+//    }
 
 
     override fun onCreateView(
@@ -61,7 +56,7 @@ class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: C
             setHasFixedSize(true)
 
         }
-        binding?.total2?.text = " $" + cartList.sumOf { it.itemPrice }.toString()
+        binding?.total2?.text = " $" + cartList.sumOf { it.itemPrice }.toBigDecimal().setScale(2)
 
 
     }
@@ -69,7 +64,7 @@ class CheckOutDialog(val cartList: MutableList<ArItem>, val checkOutInterface: C
     override fun removeItem(cartItem: ArItem, position: Int) {
         cartAdapter?.notifyItemRemoved(position)
         cartList.removeAt(position)
-        binding?.total2?.text = "$" + cartList.sumOf { it.itemPrice }.toString()
+        binding?.total2?.text = "$" + cartList.sumOf { it.itemPrice }.toBigDecimal().setScale(2)
         checkOutInterface.updateRemovedItem(cartItem)
         if (cartList.size == 0) {
             dismiss()

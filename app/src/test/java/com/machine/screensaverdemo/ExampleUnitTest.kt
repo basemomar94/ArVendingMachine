@@ -1,4 +1,4 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
 import org.junit.Test
 

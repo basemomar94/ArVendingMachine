@@ -1,13 +1,15 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
+import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ezfirecontrols.screensaverdemo.databinding.ArItemBinding
+import com.machine.screensaverdemo.databinding.ArItemBinding
 
 class ArAdapter(
+    val context: Context,
     val adsList: MutableList<ArItem>,
     val arInterface: ArInterface,
     val holderImage: Uri?
@@ -33,9 +35,10 @@ class ArAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ad = adsList[position]
-        holder.binding.itemPhoto.setImageURI(ad.image)
+        holder.binding.itemPhoto.setImageDrawable(ad.image)
+        holder.binding.cakeName.text = ad.itemName
         if (!ad.isAvailable) {
-            holder.binding.itemPhoto.visibility = View.GONE
+            holder.binding.itemPhoto.visibility = View.INVISIBLE
         } else {
             holder.binding.itemPhoto.visibility = View.VISIBLE
 

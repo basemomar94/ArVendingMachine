@@ -6,23 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\20115\.android\avd\Goobr_C31_API_30.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="R5CR927NTFX" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <targetSelectedWithDropDown>
-      <Target>
-        <type value="QUICK_BOOT_TARGET" />
-        <deviceKey>
-          <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\20115\.android\avd\Goobr_C31_API_30.avd" />
-          </Key>
-        </deviceKey>
-      </Target>
-    </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-09-21T11:16:18.524176300Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-09-23T15:40:05.387687600Z" />
   </component>
 </project>

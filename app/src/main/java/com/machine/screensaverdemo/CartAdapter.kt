@@ -1,9 +1,9 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ezfirecontrols.screensaverdemo.databinding.CartItemBinding
+import com.machine.screensaverdemo.databinding.CartItemBinding
 
 class CartAdapter(val cartList: MutableList<ArItem>, val cartInterface: CartInterface) :
     RecyclerView.Adapter<CartAdapter.ViewHolder>() {
@@ -29,8 +29,9 @@ class CartAdapter(val cartList: MutableList<ArItem>, val cartInterface: CartInte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cart = cartList[position]
-        holder.binding.cartImage.setImageURI(cart.image)
-        holder.binding.cartPrice.text = cart.itemPrice.toString() + "$"
+      holder.binding.cartImage.setImageDrawable(cart.image)
+        holder.binding.cartPrice.text = "$" + cart.itemPrice.toBigDecimal().setScale(2)
+        holder.binding.cartTitle.text = cart.itemName
 
     }
 

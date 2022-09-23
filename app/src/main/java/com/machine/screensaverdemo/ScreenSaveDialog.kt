@@ -1,4 +1,4 @@
-package com.ezfirecontrols.screensaverdemo
+package com.machine.screensaverdemo
 
 import android.app.Dialog
 import android.graphics.Color
@@ -13,8 +13,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.ezfirecontrols.screensaverdemo.databinding.DialogScreenSaverBinding
+import com.machine.screensaverdemo.databinding.DialogScreenSaverBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
